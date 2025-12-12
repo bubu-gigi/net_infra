@@ -5,13 +5,11 @@ iptables -t nat -F
 iptables -X
 iptables -t nat -X
 
-# NAT
 iptables -t nat -A POSTROUTING -s 192.168.88.0/24 -o eth0 -j MASQUERADE
 
-# DROP unless ESTABLISHED
 iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
-iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
-
-iptables -A FORWARD -m state -d 192.168.88.0/24 -i eth0 --state NEW -j DROP
-
+iptables -A INPUT   -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -A INPUT -p tcp --dport 7070 -j ACCEPT
+iptables -A FORWARD -p tcp --dport 7070 -j ACCEPT
+iptables -A FORWARD -d 192.168.88.0/24 -m state --state NEW -j DROP
 iptables -A FORWARD ! -d 192.168.88.0/24 ! -s 192.168.88.0/24 -j ACCEPT
