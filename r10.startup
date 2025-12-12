@@ -1,1 +1,9 @@
 /etc/init.d/networking restart
+
+iptables -F
+iptables -t nat -F
+iptables -X
+iptables -t nat -X
+
+# NAT
+iptables -t nat -A POSTROUTING -s 192.168.88.0/24 -o eth0 -j MASQUERADE
