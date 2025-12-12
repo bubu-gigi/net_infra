@@ -1,3 +1,7 @@
 /etc/init.d/networking restart
 
 ip route add default via 192.168.1.1 dev eth0
+
+echo -e "23.75.100.10	s1\n" > /etc/hosts
+echo -e '\n\n\n' | ssh-keygen
+cp /root/.ssh/id_rsa.pub /shared
