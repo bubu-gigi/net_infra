@@ -7,7 +7,7 @@ iface eth1 inet static
 	address 50.0.0.7/31
 
 auto eth2
-iface eth1 inet static
+iface eth2 inet static
     address 50.0.0.9/31
 
 auto eth3 
