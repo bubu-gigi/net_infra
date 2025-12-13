@@ -9,3 +9,5 @@ cp /root/.ssh/id_rsa.pub /shared
 mkdir -p /dev/net
 mknod /dev/net/tun c 10 200
 chmod 600 /dev/net/tun
+
+#ssh -NL 9000:151.0.45.1:1194 ubuntu@s1
