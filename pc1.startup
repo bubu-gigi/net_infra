@@ -10,4 +10,4 @@ mkdir -p /dev/net
 mknod /dev/net/tun c 10 200
 chmod 600 /dev/net/tun
 
-#ssh -NL 9000:151.0.45.1:1194 ubuntu@s1
+#ssh -NL 127.0.0.1:9000:151.0.45.1:1194 ubuntu@s1
